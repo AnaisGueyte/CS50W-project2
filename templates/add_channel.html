@@ -1,0 +1,29 @@
+{% extends "base.html" %}{% block body %}
+		{% with messages = get_flashed_messages(with_categories=true) %}
+    <article>
+        <section class="home-login w-80">
+            <div class="breadscrumb">
+                <p><i class="fa fa-angle-right mx-3" aria-hidden="true"></i><a href="{{ url_for('dashboard') }}">Back to dashboard</a></p>
+            </div>
+
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="{{ category }}"><p>{{ message }}</p></div>
+                {% endfor %}
+            {% endif %}
+
+            <h1>Add Channel</h1>
+
+            <form method="POST" action="{{url_for('add_channel')}}">
+                <div class="form-group">
+                    <label for="username" required='required'>New Channel Name</label>
+                    <p>{{ form.channel_name(size=30) }}</p>
+                    <button id="channelSubmit" type="submit" class="cta-primary my-3">SUBMIT</button>
+                </div>
+            </form>
+
+        </section>
+    </article>
+
+	{% endwith %}
+{% endblock %}

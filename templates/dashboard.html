@@ -1,0 +1,38 @@
+{% extends "base.html" %}{% block body %}
+		{% with messages = get_flashed_messages(with_categories=true) %}
+    <article>
+      <section class="home-login w-80">
+
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="{{ category }}"><p>{{ message }}</p></div>
+            {% endfor %}
+        {% endif %}
+
+        <h1>Dashboard</h1>
+
+        <div class="channels-container">
+
+          <h2>{% if session['username'] %}{{ session['username'] }} {% endif %}'s Channels:</h2>
+            {% if channels %}
+            <ul>
+              {% for channel in channels %}
+                <li><a class="channel-card" href="/channel/{{ channel }}">{{ channel }}</a></li>
+              {% endfor %}
+            </ul>
+
+            <a id="#addChannel" href="{{ url_for('add_channel') }}" type="button" class="cta-primary my-3">Create a channel</a>
+
+            {% else %}
+            <p>You have no channel</p>
+            <a id="#addChannel" href="{{ url_for('add_channel') }}" type="button" class="cta-primary my-3">Create a channel</a>
+            {% endif %}
+        </div>
+      </section>
+    </article>
+
+	{% endwith %}
+{% endblock %}
+
+
+

@@ -1,0 +1,45 @@
+{% extends "base.html" %}{% block body %}
+		{% with messages = get_flashed_messages(with_categories=true) %}
+    <article>
+      <section class="home-login w-80">
+        <div class="breadscrumb">
+            <p><i class="fa fa-angle-right mx-3" aria-hidden="true"></i><a href="{{ url_for('dashboard') }}">Back to dashboard</a></p>
+        </div>
+            
+        <div class="row">
+          <div id="participants_list" class="col-sm-12 col-md-4 col-lg-5">
+            <h2>Participants</h2>
+            <div >
+              <ul class="participants-list">
+
+              </ul>
+              
+            </div>
+          </div>
+          <div class="col-sm-12 col-md-8 col-lg-7">
+            <div class="chat-box">
+              <ul class="chat-container">
+                
+
+              </ul>
+              
+            </div>
+
+            <div class="chat-footer">
+              <div class="input-group mb-3">
+                  <input id="inputMessage" type="text" class="form-control" aria-label="chat input" aria-describedby="basic-addon2">
+                  <div class="input-group-append">
+                    <button id="sendMessage" class="cta-primary" type="button">SEND</button>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </article>
+
+	{% endwith %}
+{% endblock %}
+
+
+

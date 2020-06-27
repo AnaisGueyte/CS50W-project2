@@ -1,0 +1,33 @@
+{% extends "base.html" %}{% block body %}
+		{% with messages = get_flashed_messages(with_categories=true) %}
+    <article>
+      <section class="home-login">
+        <div class="row">
+          <div class="col-sm-12 col-md-6 grey-bg padding-10 vh-100">
+            <h1>FLACK!<br/>Instant Messenger</h1>
+
+              <form method="POST" action="{{url_for('index')}}">
+                <div class="form-group">
+                  <p><b>Enter your FLACK! username</b></p>
+                  <label for="username" required='required'>Username</label>
+                  <p>{{ form.username(size=20) }}</p>
+                  <button id="formSubmit" type="submit" class="cta-primary my-3">ENTER CHAT</button>
+                </div>
+              </form>
+          </div>
+          
+
+          <div class="col-sm-12 col-md-6 d-none d-md-block t-center" style="margin:auto;">
+              <img id="hp_img" src="{{ url_for('static', filename='img/woman.jpg') }}" alt="graphic of woman addicted to social media" />
+            <p class="t-center"><small><a style="font-size: 0.75em;" href="https://www.freepik.com/free-photos-vectors/people">Vector created by pikisuperstar</a><small></p>
+          </div>
+
+        </div>
+      </section>
+    </article>
+
+	{% endwith %}
+{% endblock %}
+
+
+
